@@ -225,7 +225,7 @@ def stitch_delta_lcoe_min_svgs_single_cmap(cmap_suffix: str = ""):
                 fname = scenario_dir / f"delta_lcoe_min_heatmap_{scenario}_{label}_{cmap_suffix}.svg"
             else:
                 fname = scenario_dir / f"delta_lcoe_min_heatmap_{scenario}_{label}.svg"
-                if not fname.exists():
+            if not fname.exists():
                 # If a panel is missing, skip this position (leave blank)
                 print(f"[warning] Missing subplot: {fname}")
                 continue
@@ -233,7 +233,7 @@ def stitch_delta_lcoe_min_svgs_single_cmap(cmap_suffix: str = ""):
             fig = sg.fromfile(str(fname))
             root = fig.getroot()
             
-                # Track maximum width/height across all subplots using the SVGFigure size (not group root)
+            # Track maximum width/height across all subplots using the SVGFigure size (not group root)
             size_w, size_h = fig.get_size()
             w = _parse_size(size_w)
             h = _parse_size(size_h)
@@ -570,132 +570,133 @@ def stitch_hts_tape_sensitivity_svgs():
     margin_x = panel_w * 0.1
     margin_y = panel_h * 0.1
 
-        # Reserve space for labels (units: pt)
-        label_font_size = 22  # label font size
-        left_margin = 20       # spacing between left canvas edge and y‑axis label
+    # Reserve space for labels (units: pt)
+    label_font_size = 22  # label font size
+    left_margin = 20      # spacing between left canvas edge and y-axis label
+
+    # Fixed offsets to keep tick/label distances from subplot borders consistent
+    x_axis_subplot_to_tick = 25  # distance from subplot bottom edge to x ticks
+
+    x_axis_tick_to_label = 15    # distance from x ticks to x‑axis label
+    y_axis_subplot_to_tick = 15  # distance from subplot left edge to y ticks
+    y_axis_tick_to_label = 15    # distance from y ticks to y‑axis label
+    
+    # Compute label‑area sizes
+    top_label_height = label_font_size + 8  # space for temperature labels above
+    bottom_label_height = x_axis_subplot_to_tick + label_font_size + x_axis_tick_to_label + label_font_size  # space for x ticks and label below
+    # Right‑side labels need extra room because the text is longer
+    right_label_width = max(max(len(label) * label_font_size * 0.5 for label in hts_price_labels) + 20, RIGHT_LABEL_WIDTH_MIN)
+    left_label_width = left_margin + y_axis_subplot_to_tick + label_font_size * 2 + y_axis_tick_to_label + label_font_size  # space for y ticks and label at left
+
+    # Starting position of subplot region (accounting for left labels)
+    subplot_start_x = left_label_width
+    subplot_start_y = top_label_height
+
+    # Estimate required canvas size including label regions
+    subplot_area_w = margin_x * (n_cols+1 ) + panel_w * (n_cols)
+    subplot_area_h = margin_y * (n_rows+1) + panel_h * (n_rows )
+    total_w = subplot_area_w + left_label_width + right_label_width
+    total_h = subplot_area_h + top_label_height + bottom_label_height
+
+    # Construct overall canvas: must include units ("pt") so svgutils keeps sizing correct
+    fig_out = sg.SVGFigure(f"{total_w}pt", f"{total_h}pt")
+    print(f"total_w: {total_w}pt, total_h: {total_h}pt")
+
+    # Layout each subplot on a regular grid (accounting for label offsets)
+    placed_roots = []
+    for root, row_idx, col_idx in panel_entries:
+        x = subplot_start_x + margin_x + col_idx * (panel_w + margin_x)
+        y = subplot_start_y + margin_y + row_idx * (panel_h + margin_y)
+        root.moveto(x, y)
+        placed_roots.append(root)
+
+    fig_out.append(placed_roots)
+
+    # Ensure stitched output folder exists
+    stitched_dir = scan_usd_dir / "stitched"
+    stitched_dir.mkdir(parents=True, exist_ok=True)
+
+    out_path = stitched_dir / f"delta_lcoe_min_heatmap_grid_HTS_tape_sensitivity_{cmap_name}.svg"
+    fig_out.save(str(out_path))
+
+    # After saving, reopen SVG and add labels / set canvas size precisely
+    import xml.etree.ElementTree as ET
+    tree = ET.parse(str(out_path))
+    root_svg = tree.getroot()
+    
+    # Get SVG namespace from root element
+    svg_ns = None
+    for prefix, uri in root_svg.attrib.items():
+        if prefix.startswith('xmlns') and 'svg' in uri.lower():
+            svg_ns = uri
+            break
+    if svg_ns is None:
+        # Fall back to default namespace if none is found
+        svg_ns = 'http://www.w3.org/2000/svg'
+    
+    # Register namespace
+    ET.register_namespace('', svg_ns)
+    ns_map = {'svg': svg_ns}
+    
+    # Set size and viewBox of root SVG element
+    root_svg.set('width', f"{total_w}pt")
+    root_svg.set('height', f"{total_h}pt")
+    root_svg.set('viewBox', f"0 0 {total_w} {total_h}")
+    
+    # Create label group (with correct namespace)
+    labels_group = ET.SubElement(root_svg, f'{{{svg_ns}}}g', {'id': 'labels'})
+    
+    # Text helper with unified style
+    def create_text(x, y, text, font_size=label_font_size, anchor='middle', baseline='middle', bold=False):
+        """Create a text element using the correct SVG namespace."""
+        text_elem = ET.SubElement(labels_group, f'{{{svg_ns}}}text', {
+            'x': str(x),
+            'y': str(y),
+            'font-family': 'Arial, sans-serif',
+            'font-size': str(font_size),
+            'text-anchor': anchor,
+            'dominant-baseline': baseline,
+            'fill': 'black'
+        })
+        if bold:
+            text_elem.set('font-weight', 'bold')
+        text_elem.text = text
+        return text_elem
+    
+    def create_temp_coolant_label(x, y, temp, cool, font_size=label_font_size):
+        """Create temperature–coolant labels, supporting subscript for H2."""
+        # Format temperature: show 10.0 and 20.0 as integers
+        if temp == 10.0 or temp == 20.0:
+            temp_str = str(int(temp))
+        else:
+            temp_str = str(temp)
         
-        # Fixed offsets to keep tick/label distances from subplot borders consistent
-        x_axis_subplot_to_tick = 25  # distance from subplot bottom edge to x ticks
-        x_axis_tick_to_label = 15    # distance from x ticks to x‑axis label
-        y_axis_subplot_to_tick = 15  # distance from subplot left edge to y ticks
-        y_axis_tick_to_label = 15    # distance from y ticks to y‑axis label
+        text_elem = ET.SubElement(labels_group, f'{{{svg_ns}}}text', {
+            'x': str(x),
+            'y': str(y),
+            'font-family': 'Arial, sans-serif',
+            'font-size': str(font_size),
+            'text-anchor': 'middle',
+            'dominant-baseline': 'bottom',
+            'fill': 'black'
+        })
         
-        # Compute label‑area sizes
-        top_label_height = label_font_size + 8  # space for temperature labels above
-        bottom_label_height = x_axis_subplot_to_tick + label_font_size + x_axis_tick_to_label + label_font_size  # space for x ticks and label below
-        # Right‑side labels need extra room because the text is longer
-        right_label_width = max(max(len(label) * label_font_size * 0.5 for label in hts_price_labels) + 20, RIGHT_LABEL_WIDTH_MIN)
-        left_label_width = left_margin + y_axis_subplot_to_tick + label_font_size * 2 + y_axis_tick_to_label + label_font_size  # space for y ticks and label at left
-
-        # Starting position of subplot region (accounting for left labels)
-        subplot_start_x = left_label_width
-        subplot_start_y = top_label_height
-
-        # Estimate required canvas size including label regions
-        subplot_area_w = margin_x * (n_cols+1 ) + panel_w * (n_cols)
-        subplot_area_h = margin_y * (n_rows+1) + panel_h * (n_rows )
-        total_w = subplot_area_w + left_label_width + right_label_width
-        total_h = subplot_area_h + top_label_height + bottom_label_height
-
-        # Construct overall canvas: must include units ("pt") so svgutils keeps sizing correct
-        fig_out = sg.SVGFigure(f"{total_w}pt", f"{total_h}pt")
-        print(f"total_w: {total_w}pt, total_h: {total_h}pt")
-
-        # Layout each subplot on a regular grid (accounting for label offsets)
-        placed_roots = []
-        for root, row_idx, col_idx in panel_entries:
-            x = subplot_start_x + margin_x + col_idx * (panel_w + margin_x)
-            y = subplot_start_y + margin_y + row_idx * (panel_h + margin_y)
-            root.moveto(x, y)
-            placed_roots.append(root)
-
-        fig_out.append(placed_roots)
-
-        # Ensure stitched output folder exists
-        stitched_dir = scan_usd_dir / "stitched"
-        stitched_dir.mkdir(parents=True, exist_ok=True)
-
-        out_path = stitched_dir / f"delta_lcoe_min_heatmap_grid_HTS_tape_sensitivity_{cmap_name}.svg"
-        fig_out.save(str(out_path))
-
-        # After saving, reopen SVG and add labels / set canvas size precisely
-        import xml.etree.ElementTree as ET
-        tree = ET.parse(str(out_path))
-        root_svg = tree.getroot()
+        # Add temperature part (space between number and unit)
+        tspan1 = ET.SubElement(text_elem, f'{{{svg_ns}}}tspan')
+        tspan1.text = f"{temp_str} K "
         
-        # Get SVG namespace from root element
-        svg_ns = None
-        for prefix, uri in root_svg.attrib.items():
-            if prefix.startswith('xmlns') and 'svg' in uri.lower():
-                svg_ns = uri
-                break
-        if svg_ns is None:
-            # Fall back to default namespace if none is found
-            svg_ns = 'http://www.w3.org/2000/svg'
-        
-        # Register namespace
-        ET.register_namespace('', svg_ns)
-        ns_map = {'svg': svg_ns}
-        
-        # Set size and viewBox of root SVG element
-        root_svg.set('width', f"{total_w}pt")
-        root_svg.set('height', f"{total_h}pt")
-        root_svg.set('viewBox', f"0 0 {total_w} {total_h}")
-        
-        # Create label group (with correct namespace)
-        labels_group = ET.SubElement(root_svg, f'{{{svg_ns}}}g', {'id': 'labels'})
-        
-        # Text helper with unified style
-        def create_text(x, y, text, font_size=label_font_size, anchor='middle', baseline='middle', bold=False):
-            """Create a text element using the correct SVG namespace."""
-            text_elem = ET.SubElement(labels_group, f'{{{svg_ns}}}text', {
-                'x': str(x),
-                'y': str(y),
-                'font-family': 'Arial, sans-serif',
-                'font-size': str(font_size),
-                'text-anchor': anchor,
-                'dominant-baseline': baseline,
-                'fill': 'black'
+        # Add coolant part (for H2, place "2" as subscript)
+        if cool == "H2":
+            tspan2 = ET.SubElement(text_elem, f'{{{svg_ns}}}tspan')
+            tspan2.text = "H"
+            tspan3 = ET.SubElement(text_elem, f'{{{svg_ns}}}tspan', {
+                'baseline-shift': 'sub',
+                'font-size': str(font_size * 0.7)
             })
-            if bold:
-                text_elem.set('font-weight', 'bold')
-            text_elem.text = text
-            return text_elem
-        
-        def create_temp_coolant_label(x, y, temp, cool, font_size=label_font_size):
-            """Create temperature–coolant labels, supporting subscript for H2."""
-            # Format temperature: show 10.0 and 20.0 as integers
-            if temp == 10.0 or temp == 20.0:
-                temp_str = str(int(temp))
-            else:
-                temp_str = str(temp)
-            
-            text_elem = ET.SubElement(labels_group, f'{{{svg_ns}}}text', {
-                'x': str(x),
-                'y': str(y),
-                'font-family': 'Arial, sans-serif',
-                'font-size': str(font_size),
-                'text-anchor': 'middle',
-                'dominant-baseline': 'bottom',
-                'fill': 'black'
-            })
-            
-            # Add temperature part (space between number and unit)
-            tspan1 = ET.SubElement(text_elem, f'{{{svg_ns}}}tspan')
-            tspan1.text = f"{temp_str} K "
-            
-            # Add coolant part (for H2, place "2" as subscript)
-            if cool == "H2":
-                tspan2 = ET.SubElement(text_elem, f'{{{svg_ns}}}tspan')
-                tspan2.text = "H"
-                tspan3 = ET.SubElement(text_elem, f'{{{svg_ns}}}tspan', {
-                    'baseline-shift': 'sub',
-                    'font-size': str(font_size * 0.7)
-                })
-                tspan3.text = "2"
-            else:
-                tspan2 = ET.SubElement(text_elem, f'{{{svg_ns}}}tspan')
-                tspan2.text = cool
+            tspan3.text = "2"
+        else:
+            tspan2 = ET.SubElement(text_elem, f'{{{svg_ns}}}tspan')
+            tspan2.text = cool
             
             return text_elem
         

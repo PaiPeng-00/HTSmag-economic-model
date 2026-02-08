@@ -1196,7 +1196,7 @@ def plot_from_scan_full_grid(
                     
                     # Complete arrays from configuration
                     npw_array = np.array(NPW_SCAN_VALUES)
-                r_joint_array = np.array(R_JOINT_SCAN_VALUES, dtype=float) * 1e-9  # convert to Ω
+                    r_joint_array = np.array(R_JOINT_SCAN_VALUES, dtype=float) * 1e-9  # convert to Ω
                     
                     # Plot r_cryo_re heatmap (same as USD version)
                     if global_norm_parasitic is not None and 'r_cryo_re' in temp_df_plot_cny.columns:

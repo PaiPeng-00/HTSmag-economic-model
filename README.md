@@ -50,8 +50,7 @@ Below is a brief overview of scripts in the repo root that are directly used in 
   - `analysis_economic_unified_counter.py`: unified economic analysis based on the scan table; generates LCOE, CAPEX/OPEX and other economic plots.
   - `analysis_availability_factor_full_grid.py`: computes / analyzes availability factor based on the scan table.
   - `analysis_heatload_2bars.py`: computes and analyzes heat loads at 2 bar, usually as a sub‑study for thermal conditions.
-  - `analysis_charge_time999_tf_system_npw_scan.py`: scans 99.9% charging time of the TF system over different Npw.
-  - `analysis_simulate_charging_tf_system.py`: system‑level TF magnet charging simulation.
+  - `analysis_charge_time999.py`: scans 99.9% charging time of the TF system over different Npw.
 
 - **Plotting scripts (`plot_*`)**
   - `plot_scan_full_grid_outputs.py`: reads `scan_full_grid_tidy.csv` and generates heatmaps / contour plots for ΔLCOE, parasitic power, charging time, etc.

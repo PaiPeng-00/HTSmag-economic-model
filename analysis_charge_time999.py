@@ -411,3 +411,4 @@ if __name__ == "__main__":
         Ip_case = cfg.TEMPERATURE_CASES[temp]['Ip']
         Ntape_coil_case = cfg.TEMPERATURE_CASES[temp]['Ntape_coil']
         charge999(temp, Ip_case, Ntape_coil_case)
+
