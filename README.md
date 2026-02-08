@@ -18,6 +18,26 @@ Outputs are saved to:
 - `outputs/tables/scan_full_grid.xlsx`
 - `outputs/manifest.json`
 
+## Installation / Environment
+
+- **Python**: 3.9 or newer.
+- **Clone** the repository and run all scripts from the repo root.
+
+Optional but recommended: use a virtual environment (venv or conda), then install dependencies:
+
+```powershell
+# Using pip (from repo root)
+pip install -r requirements.txt
+```
+
+If you use YAML scan config (`configs/scan_full_grid.yaml`), install PyYAML as well:
+
+```powershell
+pip install pyyaml
+```
+
+Main dependencies (see `requirements.txt`): `numpy`, `pandas`, `matplotlib`, `scipy`, `openpyxl`, and optionally `seaborn`, `numba`, `tabulate`, `cairosvg` for full plotting and export support.
+
 ## Directory Layout
 
 ```

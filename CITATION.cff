@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite it."
+title: "Techno-economic model for HTS TF magnet parameter scan"
+type: software
+authors:
+  - given-names: "Peng"
+    family-names: "Pai"
+    affiliation: "Shanghai Jiao Tong University"
+repository-code: "https://github.com/PaiPeng-00/HTSmag-economic-model.git"
+version: "1.0.0"
+date-released: "2026-02-08"
+license: "MIT"
