@@ -1,0 +1,223 @@
+{
+  "status": "PASS",
+  "scope": "portable four-group frozen postprocessing module",
+  "model_rerun": false,
+  "source_scientific_identity": "scientific_results_v7_splice_equivalent_20260906",
+  "files": [
+    {
+      "path": "code/run_full_realization_plant_robustness_v7.py",
+      "bytes": 8744,
+      "sha256": "b5bff5393c34647a97cf705837ecf5a38378743aa96e6f7ea59a29ea65428cdf",
+      "source_sha256": "2db84a06325c078f611f301e54de8646dedf3f59dc508781dde29e96f7bf6c33"
+    },
+    {
+      "path": "code/run_full_realization_robustness_matrix_v7.py",
+      "bytes": 23579,
+      "sha256": "ed7d0768fb769567d433e3a9523d5178fedc0b7d7c756b6c7155c3071b691ac3",
+      "source_sha256": "587c52ae6372f0312ee3fb90f8f45a0c4ed321c6aa7a85bb8023c8b210702339"
+    },
+    {
+      "path": "code/run_paired_temperature_effect_v7.py",
+      "bytes": 18929,
+      "sha256": "154e73b57d67755b95ee55557c9bfe02efc4e20572c9e146340c787991cbd02e",
+      "source_sha256": "ae66f8d7ed13cd7a03578f842be2b8f0bf9b079700b52003c6d1dd6a0f11c1a0"
+    },
+    {
+      "path": "code/run_joint_tolerance_temperature_ratio_v7.py",
+      "bytes": 17900,
+      "sha256": "1ecd063d2830d2fe336d9e6423f6592d6bf4c739a59049d770c16619273c5fa9",
+      "source_sha256": "356a88ba16c35718e5b899ba3295c69d3af513432b7099dbc5f0a8283b56dca8"
+    },
+    {
+      "path": "code/run_high_current_joint_resistance_yj_matrix_v7.py",
+      "bytes": 16229,
+      "sha256": "b1424feec15f7269c266f047a4c02a490b7503f1628503f68b60d9d251560d85",
+      "source_sha256": "861f61e0ef8f375c22c8e559a73a86ee2db2e21d1d9ea858e1358039f4182acb"
+    },
+    {
+      "path": "run_analysis.py",
+      "bytes": 2458,
+      "sha256": "e355a27068cd4bf847b891d1b35847a631b7fd9e5be029188b8d5acece8bdb35",
+      "source_sha256": "00c3c084661c0dda8775f44a0331a1b4cb87f61e4415564c1f6fdf2b6f03627f"
+    },
+    {
+      "path": "data/FULL_REALIZATION_ROBUSTNESS_MATRIX_V7.json",
+      "bytes": 3541,
+      "sha256": "0cdb72a506ff436d5f071273ff66a64742a3e3ba5144f90200ee643a33a73f66",
+      "source_sha256": "575f54104f139e84965cc40e5d31e2a6f070ad1042db370258434c92926cffdf"
+    },
+    {
+      "path": "data/realization_ledgers/realizations_T10p0_He.parquet",
+      "bytes": 146685260,
+      "sha256": "96c8686052e7efdce764f9e8b74e00708ca402e244ea89551ef9d00dc17c5228",
+      "source_sha256": "96c8686052e7efdce764f9e8b74e00708ca402e244ea89551ef9d00dc17c5228"
+    },
+    {
+      "path": "data/realization_ledgers/realizations_T20p0_H2.parquet",
+      "bytes": 145027576,
+      "sha256": "cb98a7542b16c4c86a48ca9b4fa2caf05b79a24ab81773a699820fdb2c558c7e",
+      "source_sha256": "cb98a7542b16c4c86a48ca9b4fa2caf05b79a24ab81773a699820fdb2c558c7e"
+    },
+    {
+      "path": "data/realization_ledgers/realizations_T20p0_He.parquet",
+      "bytes": 145033677,
+      "sha256": "96ebf658ecbe3a10d9bf4f43ae944b7ce7deaa2de480056dd2a379b650037691",
+      "source_sha256": "96ebf658ecbe3a10d9bf4f43ae944b7ce7deaa2de480056dd2a379b650037691"
+    },
+    {
+      "path": "data/realization_ledgers/realizations_T4p2_He.parquet",
+      "bytes": 147928948,
+      "sha256": "9a8eaf995a0c97b755a700519453ffc7d14dcbd570b406a42c48911a925e75fa",
+      "source_sha256": "9a8eaf995a0c97b755a700519453ffc7d14dcbd570b406a42c48911a925e75fa"
+    },
+    {
+      "path": "results/full_realization_plant_robustness_v7/FULL_REALIZATION_PLANT_ROBUSTNESS_V7.json",
+      "bytes": 1891,
+      "sha256": "0b6ad52d199c3f7de1c41057f0271e1e1b5f98a8fe5f7b0ff50c85e58d3fa611",
+      "source_sha256": "0b6ad52d199c3f7de1c41057f0271e1e1b5f98a8fe5f7b0ff50c85e58d3fa611"
+    },
+    {
+      "path": "results/full_realization_plant_robustness_v7/FULL_REALIZATION_PLANT_ROBUSTNESS_V7.md",
+      "bytes": 639,
+      "sha256": "12b8d77d6d5f5fe55f7c58b6d21c17b24b3696cb62f0415b1fb7e382ee756c94",
+      "source_sha256": "12b8d77d6d5f5fe55f7c58b6d21c17b24b3696cb62f0415b1fb7e382ee756c94"
+    },
+    {
+      "path": "results/full_realization_robustness_matrix_v7/FULL_REALIZATION_ROBUSTNESS_MATRIX_V7.json",
+      "bytes": 3541,
+      "sha256": "0cdb72a506ff436d5f071273ff66a64742a3e3ba5144f90200ee643a33a73f66",
+      "source_sha256": "575f54104f139e84965cc40e5d31e2a6f070ad1042db370258434c92926cffdf"
+    },
+    {
+      "path": "results/full_realization_robustness_matrix_v7/Rj_max_temperature_threshold_matrix.csv",
+      "bytes": 1493,
+      "sha256": "5156358b985436fb29e87d5dfcf89bae52da50acb894348ee9704cbc52fc5701",
+      "source_sha256": "5156358b985436fb29e87d5dfcf89bae52da50acb894348ee9704cbc52fc5701"
+    },
+    {
+      "path": "results/full_realization_robustness_matrix_v7/ROBUSTNESS_MATRIX_REPORT_V7.md",
+      "bytes": 1838,
+      "sha256": "60f0612a02a958985498d405403e7f8a3e3210846613c236f00e6b08a6b08eb9",
+      "source_sha256": "60f0612a02a958985498d405403e7f8a3e3210846613c236f00e6b08a6b08eb9"
+    },
+    {
+      "path": "results/full_realization_robustness_matrix_v7/scenario_threshold_matrix.csv",
+      "bytes": 710,
+      "sha256": "d7e6959ac0e983868baedb46ce78c796e49dc80a7a658f1fe9c982ab4d9faf47",
+      "source_sha256": "d7e6959ac0e983868baedb46ce78c796e49dc80a7a658f1fe9c982ab4d9faf47"
+    },
+    {
+      "path": "results/full_realization_robustness_matrix_v7/weighting_sensitivity_matrix.csv",
+      "bytes": 1291,
+      "sha256": "120a4fff1be0d7a42d1456f3c1e343e238ed1e6c5a7f0bc18ea92539d896ac74",
+      "source_sha256": "120a4fff1be0d7a42d1456f3c1e343e238ed1e6c5a7f0bc18ea92539d896ac74"
+    },
+    {
+      "path": "results/full_realization_robustness_matrix_v7/Y0_Y3_population_matrix.csv",
+      "bytes": 3425,
+      "sha256": "b1c5fef0c3c2c08e05b5dfcfbc8fafe0221b930f56132775f0fef6637168c1f8",
+      "source_sha256": "b1c5fef0c3c2c08e05b5dfcfbc8fafe0221b930f56132775f0fef6637168c1f8"
+    },
+    {
+      "path": "results/paired_temperature_effect_v7/PAIRED_TEMPERATURE_EFFECT_REPORT_V7.md",
+      "bytes": 1710,
+      "sha256": "cd4bad0252d941bc98440513ef071e49abecdf39082fa6164a45bc7708985dd5",
+      "source_sha256": "cd4bad0252d941bc98440513ef071e49abecdf39082fa6164a45bc7708985dd5"
+    },
+    {
+      "path": "results/paired_temperature_effect_v7/PAIRED_TEMPERATURE_EFFECT_V7.json",
+      "bytes": 4866,
+      "sha256": "baaf860ed5f8aed0ebb3e9e21138152efe7f0b0d3da914ef057526c3aadfa8ca",
+      "source_sha256": "baaf860ed5f8aed0ebb3e9e21138152efe7f0b0d3da914ef057526c3aadfa8ca"
+    },
+    {
+      "path": "results/paired_temperature_effect_v7/temperature_economic_effect_matrix.csv",
+      "bytes": 661,
+      "sha256": "0f6803771022715520214047ac4b2da01ae3c60a477eab9a954269a5952e3049",
+      "source_sha256": "0f6803771022715520214047ac4b2da01ae3c60a477eab9a954269a5952e3049"
+    },
+    {
+      "path": "results/paired_temperature_effect_v7/temperature_population_matrix.csv",
+      "bytes": 980,
+      "sha256": "fab9522479ac8782f401408d6f7788574d70e4fa7295fe924eeabd2b49d38c0d",
+      "source_sha256": "fab9522479ac8782f401408d6f7788574d70e4fa7295fe924eeabd2b49d38c0d"
+    },
+    {
+      "path": "results/paired_temperature_effect_v7/temperature_refrigeration_paired_stats.csv",
+      "bytes": 651,
+      "sha256": "839ade312cccce63222324bd8f6fdc3d4109aa3e5c80ee29c60ea0cdade96fe8",
+      "source_sha256": "839ade312cccce63222324bd8f6fdc3d4109aa3e5c80ee29c60ea0cdade96fe8"
+    },
+    {
+      "path": "results/joint_tolerance_temperature_ratio_v7/joint_tolerance_condition_summary.csv",
+      "bytes": 3334,
+      "sha256": "ab9904ec30b2eda46f9bd8325e1ba6c4043c111c6169791146410ec20a97bf56",
+      "source_sha256": "ab9904ec30b2eda46f9bd8325e1ba6c4043c111c6169791146410ec20a97bf56"
+    },
+    {
+      "path": "results/joint_tolerance_temperature_ratio_v7/joint_tolerance_first_failure_causes.csv",
+      "bytes": 4715,
+      "sha256": "38e5122003879019afd43ff5f2d719d6c04a6099f6900553888e60ff63ca4d6c",
+      "source_sha256": "38e5122003879019afd43ff5f2d719d6c04a6099f6900553888e60ff63ca4d6c"
+    },
+    {
+      "path": "results/joint_tolerance_temperature_ratio_v7/JOINT_TOLERANCE_TEMPERATURE_RATIO_REPORT_V7.md",
+      "bytes": 902,
+      "sha256": "693021c81ed3fbd7315efc4b2ef6c2ce80ecd081b27e3ecff812fdc563abcb70",
+      "source_sha256": "693021c81ed3fbd7315efc4b2ef6c2ce80ecd081b27e3ecff812fdc563abcb70"
+    },
+    {
+      "path": "results/joint_tolerance_temperature_ratio_v7/JOINT_TOLERANCE_TEMPERATURE_RATIO_V7.json",
+      "bytes": 3262,
+      "sha256": "2add56b22c1112d6d5ec1fa445d5dc0d4ba58ee0323c684c5b7fe1b839ae689b",
+      "source_sha256": "2add56b22c1112d6d5ec1fa445d5dc0d4ba58ee0323c684c5b7fe1b839ae689b"
+    },
+    {
+      "path": "results/joint_tolerance_temperature_ratio_v7/joint_tolerance_weighting_sensitivity.csv",
+      "bytes": 5792,
+      "sha256": "d576859b746ad8e39f34aa8bc534fcfb89185b5209769fa338726e84a827899c",
+      "source_sha256": "d576859b746ad8e39f34aa8bc534fcfb89185b5209769fa338726e84a827899c"
+    },
+    {
+      "path": "results/high_current_joint_resistance_yj_matrix_v7/HIGH_CURRENT_JOINT_RESISTANCE_YJ_MATRIX_V7.json",
+      "bytes": 14933,
+      "sha256": "c8ab6309dc7161dcd1bac3b23c11720dd0600fd103681323933b9d943a7264ff",
+      "source_sha256": "c8ab6309dc7161dcd1bac3b23c11720dd0600fd103681323933b9d943a7264ff"
+    },
+    {
+      "path": "results/high_current_joint_resistance_yj_matrix_v7/HIGH_CURRENT_JOINT_RESISTANCE_YJ_REPORT_V7.md",
+      "bytes": 1058,
+      "sha256": "b6c9e89a76e6d9fc1db12d323da7f25ae00099669262744ea2f40b1f93af0c7c",
+      "source_sha256": "02e22081dce72999b3805a15663c227077faae494cfd4f24fdbe7761cd8436f9"
+    },
+    {
+      "path": "results/high_current_joint_resistance_yj_matrix_v7/YJ_rho_boundary_ledger.csv",
+      "bytes": 40686,
+      "sha256": "c2a85ede5d81a2eff16197fe67b83c25e7d0f8b5d9762c553a7d72179afb0c42",
+      "source_sha256": "c2a85ede5d81a2eff16197fe67b83c25e7d0f8b5d9762c553a7d72179afb0c42"
+    },
+    {
+      "path": "results/high_current_joint_resistance_yj_matrix_v7/YJ_XJ_summary.csv",
+      "bytes": 7058,
+      "sha256": "eb5fc8ec7cf3d6e3212243498c1810df2f99d32e524441ee758370b2ca4c2580",
+      "source_sha256": "eb5fc8ec7cf3d6e3212243498c1810df2f99d32e524441ee758370b2ca4c2580"
+    },
+    {
+      "path": "ANALYSIS_DEFINITIONS_CN.md",
+      "bytes": 3832,
+      "sha256": "9761508a69f49a0a6b6f3cc48772f7f6e716b5ecf7ca6c0887fe91aa93d82f5b",
+      "source_sha256": "b8da964dbcc4a2ffab3b9bc84b88d5ccaa47a380af613a3574865f938faeaa15"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1987,
+      "sha256": "7eaceb3caa6aa759da7d59aa4d28118f15cc0400f746f7d32ee3411fb1150bd2"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 45,
+      "sha256": "96606a5538067c79b1b40de6b445ce1bfa2af1a6e34ba43325f987ca49d0b910"
+    }
+  ],
+  "total_bytes": 584878141
+}

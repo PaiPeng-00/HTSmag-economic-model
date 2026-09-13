@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fusion-tem"
+version = "0.1.0"
+description = "HTS TF-magnet techno-economic model: electromagnetic -> heat-load -> cryogenic -> economic (LCOE) pipeline for compact tokamaks (ARC baseline)."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "matplotlib",
+    "seaborn",
+    "openpyxl",   # read/write .xlsx (loss tables, scan results)
+    "pyyaml",     # configs/*.yaml
+]
+
+[project.optional-dependencies]
+# 可选：部分脚本用到的额外依赖（按需安装）
+accel = ["numba"]        # utils.py 的 CUDA/加速路径
+svg = ["cairosvg", "svgutils"]  # SVG stitching and PDF export
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["fusion_tem*", "tfmag*"]

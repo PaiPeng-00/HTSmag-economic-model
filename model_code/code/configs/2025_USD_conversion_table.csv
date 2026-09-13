@@ -1,0 +1,21 @@
+parameter,old_value,source_price_year,CPI_2025_over_CPI_y,new_value,new_unit,basis_note,conversion_method
+C0 S1,4.2 billion US$,2010.0,1.476423487544484,6.200978647686833,billion 2025 US$,explicit Wade cost year; S1 anchor,annual_average_cpi_u_to_2025usd
+C0 S2,2.8 billion US$,2010.0,1.476423487544484,4.133985765124555,billion 2025 US$,derived from S1 anchor; preserve scenario ratio,annual_average_cpi_u_to_2025usd
+C0 S3,1.4 billion US$,2010.0,1.476423487544484,2.0669928825622774,billion 2025 US$,derived from S1 anchor; preserve scenario ratio,annual_average_cpi_u_to_2025usd
+"c_core,VOM S1",5 US$ MWh(th)^-1,2019.0,1.259277078272842,6.296385391364209,2025 US$ MWh(th)^-1,Schwartz-derived; harmonized to ATB 2021 dollar year,annual_average_cpi_u_to_2025usd
+"c_core,VOM S2",3 US$ MWh(th)^-1,2019.0,1.259277078272842,3.777831234818526,2025 US$ MWh(th)^-1,Schwartz-derived; harmonized to ATB 2021 dollar year,annual_average_cpi_u_to_2025usd
+"c_core,VOM S3",1 US$ MWh(th)^-1,2019.0,1.259277078272842,1.259277078272842,2025 US$ MWh(th)^-1,Schwartz-derived; harmonized to ATB 2021 dollar year,annual_average_cpi_u_to_2025usd
+p_PCS,750 US$ kW(e)^-1,2018.0,1.2820948838542932,961.5711628907198,2025 US$ kW(e)^-1,derived from SAM 2018 power-cycle cost,annual_average_cpi_u_to_2025usd
+"c_PCS,VOM",1.74 US$ MWh(e)^-1,2019.0,1.259277078272842,2.191142116194745,2025 US$ MWh(e)^-1,Schwartz/ATB cost frame,annual_average_cpi_u_to_2025usd
+"f_PCS,FOM",2.5% yr^-1,,1.0,2.5,% yr^-1,dimensionless; unchanged,unchanged_dimensionless
+phi_repl,25% yr^-1,,1.0,25.0,% yr^-1,dimensionless; unchanged,unchanged_dimensionless
+p_HTS S1/S4,100 US$ kA^-1 m^-1,2025.0,1.0,100.0,2025 US$ kA^-1 m^-1,"direct constant-2025-US$ scenario assumption; literature supports the scenario range/basis only, not this exact value",direct_scenario_assumption_2025usd
+p_HTS S2/S5,50 US$ kA^-1 m^-1,2025.0,1.0,50.0,2025 US$ kA^-1 m^-1,"direct constant-2025-US$ scenario assumption; literature supports the scenario range/basis only, not this exact value",direct_scenario_assumption_2025usd
+p_HTS S3/S6,10 US$ kA^-1 m^-1,2025.0,1.0,10.0,2025 US$ kA^-1 m^-1,"direct constant-2025-US$ scenario assumption; literature supports the scenario range/basis only, not this exact value",direct_scenario_assumption_2025usd
+p_H2 S1,9 US$ kg^-1,2024.0,1.0263126854942315,9.236814169448083,2025 US$ kg^-1,2024 source year,annual_average_cpi_u_to_2025usd
+p_H2 S2,6 US$ kg^-1,2024.0,1.0263126854942315,6.157876112965389,2025 US$ kg^-1,intermediate scenario on same 2024 basis,annual_average_cpi_u_to_2025usd
+p_H2 S3,3 US$ kg^-1,2024.0,1.0263126854942315,3.0789380564826945,2025 US$ kg^-1,advanced scenario on same 2024 basis,annual_average_cpi_u_to_2025usd
+p_He S1,331 US$ kg^-1,2014.0,1.3599241349013247,450.1348886523385,2025 US$ kg^-1,publication-year proxy,annual_average_cpi_u_to_2025usd
+p_He S2,529 US$ kg^-1,2023.0,1.0565831533760854,558.9324881359491,2025 US$ kg^-1,publication-year proxy,annual_average_cpi_u_to_2025usd
+p_He S3,662 US$ kg^-1,2025.0,1.0,662.0,2025 US$ kg^-1,2025 source year,direct_2025usd_input
+p_PS,20 US$ A^-1,2025.0,1.0,20.0,2025 US$ A^-1,undated vendor price treated as 2025 assumption,direct_2025usd_input

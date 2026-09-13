@@ -1,34 +1,16 @@
-## Python
-__pycache__/
+# Generated outputs and local configuration
+**/__pycache__/
+**/.pytest_cache/
 *.py[cod]
-*.pyd
-*.so
-*.egg-info/
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
-
-## Environments
-.venv/
-venv/
-env/
-.env
-
-## IDEs
-.vscode/
-.idea/
-
-## OS
-Thumbs.db
-Desktop.ini
-
-## Data & outputs (often large / regenerated)
-outputs/
-
-data/processed/
-
-# generated outputs
-outputs/
-data/processed/
+*.aux
 *.log
-
+*.out
+*.blg
+*.bbl
+*.synctex.gz
+model_code/code/outputs/
+model_code/results/
+scientific_results*/
+publication_data/releases/
+reproduction_runs/
+*.zip
