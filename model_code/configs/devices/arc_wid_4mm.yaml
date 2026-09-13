@@ -1,0 +1,38 @@
+# ARC 变体: 带材宽度 4mm (vs ARC 12mm), 隔离带宽影响。其余几何/电厂同 ARC, Nc=12。
+# Ip/Nt 由 mf FEM 重解 (wid=4mm -> Heig=(4+3)*12=84mm 紧凑WP -> 峰值场升到 27.0T(物理,非bug),
+#   且带材面积小 Ic=Jc*wid_cm=Jc*0.4 -> Ip 暴跌)。安匝标定=8.4MA。载流比 0.7。
+#
+# ⚠ 物理不可行警告: wid=4mm 下 Ip 仅 ~110A(20K), 维持 8.4MA 安匝需 Nt=6364 匝/饼,
+#   但径向 R2=0.64m / thk=0.32mm 最多放 ~2000 匝。窄带在有限径向空间内载不动安匝。
+#   => 本案例仅作"带宽效应"敏感性研究; 它解释了 ARC 为何必须用宽带(12mm)。
+#   稳态热负荷/经济数值按 FEM Ip/Nt 形式计算, 但磁体在几何上无法实现。
+device: arc_wid_4mm
+
+# ---- 几何 (同 ARC, 仅带宽改) ----
+NP: 12
+L1: 7.24
+R1: 0.30
+R2: 0.64
+WID: 0.004           # 4mm (ARC 12mm)
+DIST: 0.003
+N_TOTAL_TAPE: 6364   # 20K Nt (远超径向可容 ~2000, 见上警告)
+
+# ---- 各温度运行点 (mf FEM @ wid=4mm, 安匝=8.4MA, 载流比 0.7) ----
+Ip_list:
+  4.2: 205.0
+  10.0: 165.0
+  20.0: 110.0
+Nt_list:
+  4.2: 3415
+  10.0: 4242
+  20.0: 6364
+
+# ---- 电厂 (同 ARC) ----
+P_fusion_W: 525000000.0
+eat_conv: 0.40
+NUCLEAR_POWER_DENSITY: 421.0
+
+# ---- 数据文件 (沿用 ARC; 稳态比较不用 AC 损耗表) ----
+TF_SYSTEM_MATRIX: "TF_system_L_matrix_ARC.xlsx"
+MAG_LOSS_FILE: "data_s3_magnetization_loss.xlsx"
+RADIAL_LOSS_FILE: "data_s2_radial_loss.xlsx"

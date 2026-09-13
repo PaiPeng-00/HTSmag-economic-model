@@ -1,0 +1,34 @@
+# ARC 变体: 每个 TF 16 个饼 (vs ARC 12), 隔离饼数影响。其余几何/电厂同 ARC。
+# Ip/Nt 由 mf FEM 重解 (Nc=16, 安匝标定=8.4MA, maxB=24.1T 正常)。载流比 0.7。
+# 注意: 饼多->磁体更高->电流更分散->峰值场略降(minJc 542>ARC 479)->Jc略升->Ip略升(不是降)。
+#       Nt=AT/(Nc*Ip) 随之降以吸收饼数变化。NP=16 也改 AC 损耗, 但稳态运行 AC=0。
+device: arc_16_pancake
+
+# ---- 几何 (同 ARC, 仅饼数改) ----
+NP: 16               # 每个 TF 线圈饼数 Nc (ARC 是 12)
+L1: 7.24
+R1: 0.30
+R2: 0.64
+WID: 0.012
+DIST: 0.003
+N_TOTAL_TAPE: 1141   # 20K 每饼带材数 = FEM Nt(20K)
+
+# ---- 各温度运行点 (mf FEM @ Nc=16, 安匝=8.4MA, 载流比 0.7) ----
+Ip_list:             # 单带运行电流 (A)
+  4.2: 730.0
+  10.0: 620.0
+  20.0: 460.0
+Nt_list:             # 每饼带材数
+  4.2: 719
+  10.0: 847
+  20.0: 1141
+
+# ---- 电厂 (同 ARC) ----
+P_fusion_W: 525000000.0
+eat_conv: 0.40
+NUCLEAR_POWER_DENSITY: 421.0
+
+# ---- 数据文件 (沿用 ARC; 稳态比较不用 AC 损耗表; 全网格扫描需另算 Nc=16 的损耗/电感) ----
+TF_SYSTEM_MATRIX: "TF_system_L_matrix_ARC.xlsx"
+MAG_LOSS_FILE: "data_s3_magnetization_loss.xlsx"
+RADIAL_LOSS_FILE: "data_s2_radial_loss.xlsx"

@@ -1,0 +1,220 @@
+{
+  "audit_name": "V6.2 top-level authoritative closure audit",
+  "audit_version": "1.0",
+  "timestamp_utc": "2026-08-08T02:09:05.053678+00:00",
+  "device": "arc_16pancake_nuc600_v6_2",
+  "git_commit": "c21918523df6b9fb6781f604eff1cc5ff0c6ed54",
+  "matrix_sha256": "97242795c8f75319c8f5ea726a1fedd86999e8a66e53ddeb1255e6fb0c659ae5",
+  "matrix_shape": [
+    18,
+    18
+  ],
+  "matrix_identity": {
+    "matrix_xlsx": {
+      "path": "code-model\\v6_2_arc_actual_inductance\\data\\TF_system_L_matrix_ARC_actual_geometry_v6_2.xlsx",
+      "sha256": "97242795c8f75319c8f5ea726a1fedd86999e8a66e53ddeb1255e6fb0c659ae5",
+      "expected_sha256": "97242795c8f75319c8f5ea726a1fedd86999e8a66e53ddeb1255e6fb0c659ae5",
+      "pass": true
+    },
+    "matrix_csv": {
+      "path": "code-model\\v6_2_arc_actual_inductance\\data\\TF_system_L_matrix_ARC_actual_geometry_v6_2.csv",
+      "sha256": "62441bd8c96a0456ff42a8675f7df6c1dd49c5a42e58bf084b1a5bb032cf15df",
+      "expected_sha256": "62441bd8c96a0456ff42a8675f7df6c1dd49c5a42e58bf084b1a5bb032cf15df",
+      "pass": true
+    },
+    "shape": [
+      18,
+      18
+    ],
+    "A_circuit": {
+      "status": "COMPLETE",
+      "rows": 36600,
+      "expected_rows": 36600,
+      "matrix_sha256": "97242795c8f75319c8f5ea726a1fedd86999e8a66e53ddeb1255e6fb0c659ae5",
+      "pass": true
+    },
+    "B1": {
+      "matrix_sha256": "97242795c8f75319c8f5ea726a1fedd86999e8a66e53ddeb1255e6fb0c659ae5",
+      "device": "arc_16pancake_nuc600_v6_2",
+      "pass": true
+    },
+    "C": {
+      "matrix_sha256": "97242795c8f75319c8f5ea726a1fedd86999e8a66e53ddeb1255e6fb0c659ae5",
+      "pass": true
+    },
+    "F1": {
+      "matrix_sha256": "97242795c8f75319c8f5ea726a1fedd86999e8a66e53ddeb1255e6fb0c659ae5",
+      "pass": true
+    },
+    "F2": {
+      "matrix_sha256": "97242795c8f75319c8f5ea726a1fedd86999e8a66e53ddeb1255e6fb0c659ae5",
+      "pass": true
+    },
+    "G": {
+      "matrix_sha256": "97242795c8f75319c8f5ea726a1fedd86999e8a66e53ddeb1255e6fb0c659ae5",
+      "pass": true
+    },
+    "H": {
+      "matrix_sha256": "97242795c8f75319c8f5ea726a1fedd86999e8a66e53ddeb1255e6fb0c659ae5",
+      "pass": true
+    },
+    "D_E_inherited": {
+      "description": "D inherits C boundary source; E validates B1 strict table and current matrix before direct evaluation",
+      "pass": true
+    }
+  },
+  "full_cache_rebuild": {
+    "status": "EVIDENCE_COMPLETE_BUT_NOT_FORMALLY_CLOSED",
+    "pass": false,
+    "formal_completion_marker_found": false,
+    "definition_source": "No V6.2 top-level full-cache completion predicate/finalizer found; available evidence is the A circuit COMPLETE manifest plus A availability PASS, B1 full-grid PASS, B1 strict-Parquet PASS, and downstream direct stage audits.",
+    "evidence": {
+      "A_circuit_manifest": {
+        "status": "COMPLETE",
+        "actual_rows": 36600,
+        "expected_rows": 36600
+      },
+      "A_availability_audit": {
+        "status": "PASS"
+      },
+      "B1_full_grid_audit": {
+        "status": "PASS",
+        "rows": 17714400,
+        "strict_feasible_rows": 13917926
+      },
+      "B1_strict_parquet_audit": {
+        "status": "PASS",
+        "rows": 17714400,
+        "strict_feasible_rows": 13917926
+      }
+    }
+  },
+  "B1": {
+    "rows": 17714400,
+    "strict_feasible_rows": 13917926,
+    "strict_feasible_fraction": 0.7856843020367611,
+    "audit_status": "PASS",
+    "parquet_audit_status": "PASS"
+  },
+  "stages": {
+    "A": "PASS",
+    "B1": "PASS",
+    "C": "PASS",
+    "D": "PASS",
+    "E": "PASS",
+    "F1": "PASS",
+    "F2": "PASS",
+    "G": "PASS",
+    "H": "PASS"
+  },
+  "top_level_finalizer": {
+    "status": "NOT FOUND",
+    "checked": [
+      "V6.2-specific finalize/close_manifest/authoritative closure functions",
+      "8.56 V6.2 continuous runners",
+      "tfmag.manifest.write_manifest"
+    ],
+    "note": "tfmag.manifest.write_manifest is generic and does not implement V6.2 closure semantics."
+  },
+  "worktree": {
+    "branch": "v6.1-log-grid-refinement",
+    "dirty_file_count": 113,
+    "relevant_dirty_file_count": 30,
+    "relevant_dirty_files": [
+      " M code/src/fusion_tem/cryo/heat_load.py",
+      " M code/src/fusion_tem/economic/lcoe.py",
+      "?? code/scripts/1_inductance/1.3_v6_2_arc_actual_tf_system_matrix.py",
+      "?? code/scripts/8_economic/8.37_run_v6_2_a_cache_blocks.py",
+      "?? code/scripts/8_economic/8.38_run_v6_2_b_temperature_block.py",
+      "?? code/scripts/8_economic/8.39_run_v6_2_b_queue.py",
+      "?? code/scripts/8_economic/8.40_reduce_v6_2_b.py",
+      "?? code/scripts/8_economic/8.41_build_v6_2_b1_and_strict_feasible.py",
+      "?? code/scripts/8_economic/8.42_prepare_v6_2_c_grid_brackets.py",
+      "?? code/scripts/8_economic/8.43_refine_v6_2_c_direct_bisection.py",
+      "?? code/scripts/8_economic/8.44_refine_v6_2_c_fast.py",
+      "?? code/scripts/8_economic/8.45_refine_v6_2_c_fast_r2.py",
+      "?? code/scripts/8_economic/8.47_compute_v6_2_d_tolerance_coverage.py",
+      "?? code/scripts/8_economic/8.48_run_v6_2_e_fast.py",
+      "?? code/scripts/8_economic/8.49_build_v6_2_b1_strict_parquet.py",
+      "?? code/scripts/8_economic/8.50_v6_2_fgh_preflight.py",
+      "?? code/scripts/8_economic/8.51_prepare_v6_2_f1_h2_input.py",
+      "?? code/scripts/8_economic/8.52_init_v6_2_gh_contracts.py",
+      "?? code/scripts/8_economic/8.53_run_v6_2_f2_price.py",
+      "?? code/scripts/8_economic/8.53b_run_v6_2_f2_price_fixed.py",
+      "?? code/scripts/8_economic/8.53c_run_v6_2_f2_price_fixed.py",
+      "?? code/scripts/8_economic/8.53d_run_v6_2_f2_price_fixed.py",
+      "?? code/scripts/8_economic/8.54_run_v6_2_g_mechanisms.py",
+      "?? code/scripts/8_economic/8.54b_run_v6_2_g_mechanisms_relaxed.py",
+      "?? code/scripts/8_economic/8.54d_run_v6_2_g_mechanisms_relaxed.py",
+      "?? code/scripts/8_economic/8.54e_run_v6_2_g_mechanisms_relaxed.py",
+      "?? code/scripts/8_economic/8.55_run_v6_2_h_crossover.py",
+      "?? code/scripts/8_economic/8.56_run_v6_2_continuous.py",
+      "?? configs/devices/arc_16pancake_nuc600_v6_2.yaml",
+      "?? v6_2_arc_actual_inductance/"
+    ],
+    "authoritative_source_snapshot_clean": false
+  },
+  "closure_conditions": {
+    "matrix_identity_pass": true,
+    "full_cache_rebuild_pass": false,
+    "B1_full_grid_pass": true,
+    "required_stages_pass": true,
+    "audit_chain_pass": true,
+    "provenance_pass": false,
+    "no_stale_cache": true,
+    "no_required_blocker": false
+  },
+  "ready_for_authoritative": false,
+  "manifest_before_status": "DIRECT_ARC_MATRIX_FROZEN_PENDING_FULL_CACHE_REBUILD",
+  "manifest_after_status": "DIRECT_ARC_MATRIX_FROZEN_PENDING_FULL_CACHE_REBUILD",
+  "authoritative_before": false,
+  "authoritative_after": false,
+  "writing_pack_status_after": "PRELIMINARY",
+  "blockers": [
+    {
+      "id": "B1",
+      "type": "provenance/worktree",
+      "summary": "V6.2 result-generating source and device inputs are dirty/uncommitted, so the recorded git commit does not fully identify the executed source state.",
+      "evidence_count": 30,
+      "examples": [
+        " M code/src/fusion_tem/cryo/heat_load.py",
+        " M code/src/fusion_tem/economic/lcoe.py",
+        "?? code/scripts/1_inductance/1.3_v6_2_arc_actual_tf_system_matrix.py",
+        "?? code/scripts/8_economic/8.37_run_v6_2_a_cache_blocks.py",
+        "?? code/scripts/8_economic/8.38_run_v6_2_b_temperature_block.py",
+        "?? code/scripts/8_economic/8.39_run_v6_2_b_queue.py",
+        "?? code/scripts/8_economic/8.40_reduce_v6_2_b.py",
+        "?? code/scripts/8_economic/8.41_build_v6_2_b1_and_strict_feasible.py",
+        "?? code/scripts/8_economic/8.42_prepare_v6_2_c_grid_brackets.py",
+        "?? code/scripts/8_economic/8.43_refine_v6_2_c_direct_bisection.py",
+        "?? code/scripts/8_economic/8.44_refine_v6_2_c_fast.py",
+        "?? code/scripts/8_economic/8.45_refine_v6_2_c_fast_r2.py",
+        "?? code/scripts/8_economic/8.47_compute_v6_2_d_tolerance_coverage.py",
+        "?? code/scripts/8_economic/8.48_run_v6_2_e_fast.py",
+        "?? code/scripts/8_economic/8.49_build_v6_2_b1_strict_parquet.py",
+        "?? code/scripts/8_economic/8.50_v6_2_fgh_preflight.py",
+        "?? code/scripts/8_economic/8.51_prepare_v6_2_f1_h2_input.py",
+        "?? code/scripts/8_economic/8.52_init_v6_2_gh_contracts.py",
+        "?? code/scripts/8_economic/8.53_run_v6_2_f2_price.py",
+        "?? code/scripts/8_economic/8.53b_run_v6_2_f2_price_fixed.py",
+        "?? code/scripts/8_economic/8.53c_run_v6_2_f2_price_fixed.py",
+        "?? code/scripts/8_economic/8.53d_run_v6_2_f2_price_fixed.py",
+        "?? code/scripts/8_economic/8.54_run_v6_2_g_mechanisms.py",
+        "?? code/scripts/8_economic/8.54b_run_v6_2_g_mechanisms_relaxed.py",
+        "?? code/scripts/8_economic/8.54d_run_v6_2_g_mechanisms_relaxed.py"
+      ],
+      "required_action": "Create an immutable source snapshot/commit for the exact V6.2 matrix/device/pipeline code, then rerun closure audit. No automatic commit performed."
+    },
+    {
+      "id": "B2",
+      "type": "bookkeeping/finalizer",
+      "summary": "No V6.2-specific top-level finalizer or formal full-cache completion predicate was found; current manifest remains in its initial pending state.",
+      "required_action": "After B1 provenance is closed, use an official project finalizer if added, or perform the task-specified minimal schema-preserving update with backup, temp-write, validation, and rename."
+    }
+  ],
+  "manuscript_level_missing_metrics": [
+    "S_Rj_cryo",
+    "standalone HTS direct cost",
+    "F2 price coverage fields"
+  ]
+}

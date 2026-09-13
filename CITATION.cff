@@ -1,12 +1,22 @@
 cff-version: 1.2.0
-message: "If you use this code or data, please cite it."
-title: "Techno-economic model for HTS TF magnet parameter scan"
+title: "HTS TF-magnet performance and fusion plant economics model"
+version: "2.0.0"
 type: software
+message: "Cite the archived software release, companion dataset, and associated paper."
 authors:
-  - given-names: "Peng"
-    family-names: "Pai"
-    affiliation: "Shanghai Jiao Tong University"
-repository-code: "https://github.com/PaiPeng-00/HTSmag-economic-model.git"
-version: "1.0.0"
-date-released: "2026-02-08"
-license: "MIT"
+  - family-names: Peng
+    given-names: Pai
+    orcid: "https://orcid.org/0009-0003-8941-9018"
+    affiliation: "School of Electrical Engineering, Shanghai Jiao Tong University, Shanghai 200240, China"
+  - family-names: Hu
+    given-names: Xinbo
+    affiliation: "China Fusion Energy Co. Ltd, Shanghai 201100, China"
+  - family-names: Wang
+    given-names: Yawei
+    affiliation: "School of Electrical Engineering, Shanghai Jiao Tong University, Shanghai 200240, China"
+    email: "yawei.wang@sjtu.edu.cn"
+  - family-names: Jin
+    given-names: Zhijian
+    affiliation: "School of Electrical Engineering, Shanghai Jiao Tong University, Shanghai 200240, China"
+repository-code: "https://github.com/PaiPeng-00/HTSmag-economic-model"
+license: MIT

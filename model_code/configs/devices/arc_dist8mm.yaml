@@ -1,0 +1,35 @@
+# ARC 变体: 饼间距 dist 3->8mm (vs ARC 3mm), Nc=12/WID=12mm 不变。
+# 动机: 3mm 间距偏小(冷却通道/绝缘/结构), 8mm 更现实。
+# mf FEM (dist=8mm): Heig=(12+8)*12=240mm -> WP更高 -> 峰值场降到24.1T -> Jc升 -> Ip升(400->460)。
+#   (与 Nc=16 同 Heig=240mm, 故场/Ip 完全相同; 区别仅 Nt=1522 vs Nc16 的1141)。
+# H_magnet=(WID+DIST)*NP=240mm -> V_magnet x1.33 -> 核热x1.33 (大间距->磁体变高的代价)。
+device: arc_dist8mm
+
+# ---- 几何 (ARC + 间距加大到8mm) ----
+NP: 12
+L1: 7.24
+R1: 0.30
+R2: 0.64
+WID: 0.012
+DIST: 0.008           # 3mm -> 8mm
+N_TOTAL_TAPE: 1522    # 20K Nt (<=2000 径向可容, 可行)
+
+# ---- 各温度运行点 (mf FEM @ dist=8mm, 安匝=8.4MA, 载流比 0.7) ----
+Ip_list:
+  4.2: 730.0
+  10.0: 620.0
+  20.0: 460.0
+Nt_list:
+  4.2: 959
+  10.0: 1129
+  20.0: 1522
+
+# ---- 电厂 (同 ARC) ----
+P_fusion_W: 525000000.0
+eat_conv: 0.40
+NUCLEAR_POWER_DENSITY: 421.0
+
+# ---- 数据文件 (沿用 ARC; 稳态比较不用 AC 损耗表) ----
+TF_SYSTEM_MATRIX: "TF_system_L_matrix_ARC.xlsx"
+MAG_LOSS_FILE: "data_s3_magnetization_loss.xlsx"
+RADIAL_LOSS_FILE: "data_s2_radial_loss.xlsx"

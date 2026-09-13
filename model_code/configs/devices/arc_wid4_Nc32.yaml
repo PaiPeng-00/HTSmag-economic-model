@@ -1,0 +1,36 @@
+# ARC 变体: 4mm 窄带 + 32 饼 (可行版)。
+# 背景: arc_wid_4mm (4mm, 12饼) 因 Ip 暴跌、Nt=6364 超径向上限而不可行。
+# 解决 (用户思路): 增加饼数 Nc, 把每饼匝数 Nt 摊薄回 <=2000(径向可容)。
+# mf FEM 扫描 (wid=4mm, Nc 24/32/40) 得: Nc=32 时各温度 Nt_req<=2000 -> 可行。
+#   且饼多->磁体高(Heig=224mm)->电流分散->峰值场降(24.4T)->Jc升->Ip回升(110->148@20K)。
+# 注意: Heig=224mm > ARC 180mm -> 体积大 -> 核热升 (这是窄带多饼的代价)。
+device: arc_wid4_Nc32
+
+# ---- 几何 (ARC + 4mm窄带 + 32饼) ----
+NP: 32
+L1: 7.24
+R1: 0.30
+R2: 0.64
+WID: 0.004
+DIST: 0.003
+N_TOTAL_TAPE: 1772   # 20K Nt (<=2000 径向可容, 可行)
+
+# ---- 各温度运行点 (mf FEM @ wid=4mm, Nc=32, 安匝=8.4MA, 载流比 0.7) ----
+Ip_list:
+  4.2: 241.0
+  10.0: 203.0
+  20.0: 148.0
+Nt_list:
+  4.2: 1088
+  10.0: 1292
+  20.0: 1772
+
+# ---- 电厂 (同 ARC) ----
+P_fusion_W: 525000000.0
+eat_conv: 0.40
+NUCLEAR_POWER_DENSITY: 421.0
+
+# ---- 数据文件 (沿用 ARC; 稳态比较不用 AC 损耗表) ----
+TF_SYSTEM_MATRIX: "TF_system_L_matrix_ARC.xlsx"
+MAG_LOSS_FILE: "data_s3_magnetization_loss.xlsx"
+RADIAL_LOSS_FILE: "data_s2_radial_loss.xlsx"

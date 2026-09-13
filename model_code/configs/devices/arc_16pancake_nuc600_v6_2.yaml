@@ -1,0 +1,62 @@
+device: arc_16pancake_nuc600_v6_2
+NP: 16
+L1: 7.24
+R1: 0.3
+R2: 0.64
+WID: 0.012
+DIST: 0.003
+N_TOTAL_TAPE: 1150
+Ip_list:
+  4.2: 750.0
+  10.0: 617.6
+  20.0: 456.5
+Nt_list:
+  4.2: 700
+  10.0: 850
+  20.0: 1150
+P_fusion_W: 525000000.0
+eat_conv: 0.4
+NUCLEAR_POWER_DENSITY: 600.0
+TF_SYSTEM_MATRIX: TF_system_L_matrix_ARC_actual_geometry_v6_2.xlsx
+MAG_LOSS_FILE: data_s3_magnetization_loss.xlsx
+RADIAL_LOSS_FILE: data_s2_radial_loss.xlsx
+Ntf: 18
+Ic0_cm: 400
+RHO_TAPE: 5.0e-09
+LEN_PER_SINGEL_REBCO: 200.0
+carrying_factor: 0.7
+R_SU_JOINT: 1.0e-08
+eps: 0.03
+N_LAYER_CRYOSTAT: 30
+L_LEAD_HTS: 0.5
+T_HOT_HTS_LEAD: 77.0
+LEN_LEAD_CU: 1.0
+design_factor: 5000000.0
+N_LEAD: 2
+d_in_cool: 0.02
+d_out_cool: 0.022
+d_in_aux: 0.01
+d_out_aux: 0.012
+N_cool_pipe: 2
+L_cool: 1.0
+N_aux_pipe: 2
+L_aux: 1.0
+JOINT_WIDTH: 12.0
+JOINT_LENGTH: 200.0
+JOINT_PRESSURE: 75.0
+Q_OTHER_SOURCES: 10.0
+RRR: 100
+INTK_CU30: 42853.56
+Temp_transfer: 150.0
+Time_transfer: 5.0
+CHARGE_HOURS: 96
+T_HIGH: 300
+ceff_77to20: 5
+POINTS_PER_TURN: 200
+MAX_TEMP_RUN: 21
+P0_HE_BAR: 10.0
+P0_H2_BAR: 10.0
+P_REF: 10.0
+TOTAL_SIMULATION_TIME_H: 192
+TIME_STEP_H: 1
+V6_2_INDUCTANCE_PROVENANCE: direct_ARC_geometry_Neumann_n8000_self_n40000_sha256_62441bd8c96a0456ff42a8675f7df6c1dd49c5a42e58bf084b1a5bb032cf15df
