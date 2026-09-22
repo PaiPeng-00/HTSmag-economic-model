@@ -1,0 +1,5 @@
+temp_coolant_pairs: [[4.2, He], [10.0, He], [20.0, He], [20.0, H2]]
+npw_values: [19, 200]
+rho_turn_uohm_cm2_values: [10000.0]
+r_joint_nohm_values: [1.0, 100.0]
+scenarios: [S1, S2, S3]

@@ -1,0 +1,40 @@
+{
+  "status": "FULL_GRID_NUMERICAL_AND_MANUSCRIPT_VALIDATION_PASS",
+  "release_version": "v3.0.0",
+  "calculation_snapshot": "V10-20260920",
+  "date": "2026-09-20",
+  "independently_recomputed_circuit_cases": 36600,
+  "independently_recomputed_scenario_records": 17714400,
+  "complete_magnet_realizations": 5904800,
+  "raw_comparison": {
+    "scientific_columns": 126,
+    "maximum_numeric_difference": 0,
+    "method": "Exact canonical per-column SHA-256 over all rows; only absolute cache path excluded"
+  },
+  "complete_ledger_keys_flags_and_values": "PASS",
+  "manuscript_reported_claims": "PASS",
+  "corrections": [
+    "Figs S4/S5 regenerated from V10 outputs; nuclear heat 3111.5253146 W per TF",
+    "Fig S3 magnetization time interpolation aligned with the model",
+    "Charging-time and radial-loss reported ranges explicitly qualified as 10 K"
+  ],
+  "unchanged": [
+    "Numerical model and parameter grid",
+    "Main-text numerical conclusions",
+    "Author Fig 1 artwork"
+  ],
+  "scope": {
+    "upstream_COMSOL_recalculation": "NOT RUN",
+    "fresh_dependency_install": "NOT RUN",
+    "runtime": "Python 3.11.7 with tested installed dependencies; isolated startup",
+    "remote_publication": "NOT PERFORMED"
+  },
+  "local_evidence_sha256": {
+    "RAW_COMPARISON.json": "5e4a74037fe16696b5df0808f85c4d8a2aaf7b03fab6924a977e508c8fa39675",
+    "DERIVED_COMPARISON.json": "62619d8d130e1fdf626ebea4363fc66881fdd9bd46bcb44decc7dbafeb8c6fc1",
+    "MANUSCRIPT_CLAIMS_CHECK.json": "f7d728dbc1050b496c9a279608112152fd9a3e5ed532c78545763ab4ba7922d7",
+    "VISUAL_QA.json": "50b25b8fe56b51e0006df0817b5fd30f9f4045b3e8dfc94df9acdc3f90c7ee2a",
+    "PROMOTION_AUDIT.json": "45d6d0c0686ee91071214d0c4ec7bfb7928d6b82d1016c01b9a42953114490cb",
+    "FINAL_MANUSCRIPT_QA.json": "4265260b9a332dff7b6000b0f96ad9ddde89bdba804d1dc0185b227b31932e9b"
+  }
+}

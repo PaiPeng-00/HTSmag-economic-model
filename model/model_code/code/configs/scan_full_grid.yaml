@@ -1,0 +1,20 @@
+# Current complete manuscript-domain grid.
+temp_coolant_pairs:
+  - [4.2, "He"]
+  - [10.0, "He"]
+  - [20.0, "He"]
+  - [20.0, "H2"]
+
+npw_values:
+  range: {start: 1, stop: 200, step: 1}
+
+rho_turn_uohm_cm2_values:
+  logspace: {start: 10.0, stop: 10000.0, num: 61}
+
+r_joint_nohm_values:
+  logspace: {start: 1.0, stop: 100.0, num: 121}
+
+scenarios:
+  - "S1"
+  - "S2"
+  - "S3"

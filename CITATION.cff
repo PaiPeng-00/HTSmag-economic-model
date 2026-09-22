@@ -1,6 +1,6 @@
 cff-version: 1.2.0
-title: "HTS TF-magnet performance and fusion plant economics model"
-version: "2.0.0"
+title: "Fusion economics are robust to performance degradation in high-temperature superconducting magnets: V10 code"
+version: "v3.0.0"
 type: software
 message: "Cite the archived software release, companion dataset, and associated paper."
 authors:

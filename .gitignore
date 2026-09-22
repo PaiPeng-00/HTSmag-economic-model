@@ -1,16 +1,9 @@
-# Generated outputs and local configuration
-**/__pycache__/
-**/.pytest_cache/
-*.py[cod]
-*.aux
-*.log
-*.out
-*.blg
-*.bbl
-*.synctex.gz
-model_code/code/outputs/
-model_code/results/
-scientific_results*/
-publication_data/releases/
-reproduction_runs/
+.venv/
+__pycache__/
+*.pyc
+outputs/
+**/outputs/
+results/
+model/model_code/code/data/
+figures/publication_figures/build*/
 *.zip
